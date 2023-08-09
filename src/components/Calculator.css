@@ -35,10 +35,6 @@
   display: flex;
 }
 
-.buttons-row button .big-zero {
-  width: 200px;
-}
-
-.buttons-row button:not(.big-zero) {
-  width: 97px;
+.last-buttons button:first-child {
+  width: 424px;
 }
