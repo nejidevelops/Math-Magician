@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function CalculatorButton({ label }) {
+function CalculatorButton({ label, onClick }) {
   return (
-    <button type="button">
+    <button type="button" onClick={onClick}>
       {label}
     </button>
   );
