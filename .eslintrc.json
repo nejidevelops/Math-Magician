@@ -32,6 +32,11 @@
     "dist/",
     "build/",
     "Button.jsx",
-    "Quote.jsx"
+    "Quote.jsx",
+    "App.js",
+    "index.js",
+    "NavBar.jsx",
+    "Home.jsx",
+    "Calculator.jsx"
   ]
 }
