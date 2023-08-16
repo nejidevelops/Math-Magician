@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Quote.css';
+import styled from 'styled-components';
 
 function Quote() {
   const [quotes, setQuotes] = useState([]);
@@ -38,26 +38,59 @@ function Quote() {
   }
 
   return (
-    <div className="quote-display">
-      <h2>
-        Quotes about
-        {' '}
-        {category}
-      </h2>
-      <ul>
-        {quotes.map((quote, index) => (
-          <li key={index}>
-            <p>
-              {quote.quote}
-            </p>
-            <p>
-              {quote.author}
-            </p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <CenteredContainer>
+      <QuoteDisplay>
+        <h2>
+          Quotes about
+          {' '}
+          {category}
+        </h2>
+        <ul>
+          {quotes.map((quote, index) => (
+            <li key={index}>
+              <p>
+                {quote.quote}
+              </p>
+              <p>
+                {quote.author}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </QuoteDisplay>
+    </CenteredContainer>
   );
 }
+
+const CenteredContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 92vh;
+  margin-top: 1rem;
+  background-color: #f5f5f5;
+`;
+
+const QuoteDisplay = styled.div`
+  width: 350px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  display: grid;
+  gap: 1.5rem;
+
+  h2 {
+    text-align: center;
+  }
+
+  li {
+    text-align: right;
+    display: grid;
+    gap: 0.5rem;
+
+    p:last-child {
+      font-weight: bold;
+    }
+  }
+`;
 
 export default Quote;
