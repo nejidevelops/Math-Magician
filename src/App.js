@@ -1,13 +1,17 @@
 import Calculator from './components/Calculator';
 import Quote from './components/Quote';
 import './App.css';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
-    <div className="App">
-      <Calculator />
-      <Quote />
-    </div>
+    <>
+      <NavBar />
+      <div className="App">
+        <Calculator />
+        <Quote />
+      </div>
+    </>
   );
 }
 
