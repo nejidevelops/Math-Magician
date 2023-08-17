@@ -25,7 +25,7 @@ function Calculator() {
         <h3>Let&apos;s do some maths!</h3>
       </CalculatorText>
       <div className="calculator">
-        <div className="display">
+        <div className="display" data-testid="display">
           { calc.total }
           { calc.operation }
           { calc.next }
