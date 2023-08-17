@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 
 function Quote() {
@@ -10,11 +9,17 @@ function Quote() {
   const apiKey = 'PR9OrpSi7kbt4/xm76yLrQ==GDPbm1EnnixMX3cm';
 
   useEffect(() => {
-    axios.get(`https://api.api-ninjas.com/v1/quotes?category=${category}`, {
+    fetch(`https://api.api-ninjas.com/v1/quotes?category=${category}`, {
       headers: { 'X-Api-Key': apiKey },
     })
       .then((response) => {
-        setQuotes(response.data);
+        if (!response.ok) {
+          throw new Error(`Request failed with status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setQuotes(data);
         setIsLoading(false);
       })
       .catch((error) => {
